@@ -29,7 +29,7 @@ jobs:
       - name: 📦 Build archive
         run: |
           REPOSITORY_NAME=$(jq --raw-output '.repository.name' $GITHUB_EVENT_PATH)
-          zip -r $REPOSITORY_NAME.zip .  -x ".*" -x "__MACOSX"
+          zip -r $REPOSITORY_NAME.zip .  -x ".*" -x "__MACOSX" -x "template.gif"
       - name: ⬆️ Upload to Release
         run: |
           REPOSITORY_NAME=$(jq --raw-output '.repository.name' $GITHUB_EVENT_PATH)
